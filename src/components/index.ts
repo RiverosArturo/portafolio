@@ -1,4 +1,5 @@
 export * from './ui/Contacto';
+export * from './ui/Cursos';
 export * from './ui/Footer';
 export * from './ui/Habilidades';
 export * from './ui/Hero';

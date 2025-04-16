@@ -1,5 +1,5 @@
 'use client';
-import { Contacto, Habilidades, Hero, Proyectos, SobreMi } from '@/components';
+import { Contacto, Cursos, Habilidades, Hero, Proyectos, SobreMi } from '@/components';
 
 
 
@@ -11,6 +11,7 @@ export default function HomePage() {
       <SobreMi />
       <Habilidades />
       <Proyectos />
+      <Cursos />
       <Contacto />
     </div>
   );

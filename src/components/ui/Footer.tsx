@@ -8,8 +8,8 @@ export const Footer = () => {
     }
     const darkMode = useUiNavbar((state) => state.darkMode);
     const language = useLanguageStore((state) => state.language);
-    const bgColor = darkMode ? 'bg-[#0f172a]' : 'bg-[#f9fafb]'; // Tu color de fondo principal
-    const textColor = darkMode ? 'text-gray-500' : 'text-gray-700'; // Ligeramente más oscuro/claro que el fondo
+    const bgColor = darkMode ? 'bg-[#0e0e12]' : 'bg-[#f8f9fa]';
+    const textColor = darkMode ? 'text-white' : 'text-black';
     const borderColor = darkMode ? 'border-gray-600' : 'border-gray-400'; // Contraste sutil con el borde
 
     return (

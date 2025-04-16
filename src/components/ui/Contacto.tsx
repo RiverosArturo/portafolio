@@ -24,9 +24,9 @@ export const Contacto = () => {
     const darkMode = useUiNavbar((state) => state.darkMode);
     const language = useLanguageStore((state) => state.language);
 
-    const bgColor = darkMode ? 'bg-[#0f172a]' : 'bg-[#f9fafb]';
-    const textColor = darkMode ? 'text-white' : 'text-gray-800';
-    const cardColor = darkMode ? 'bg-[#1e293b]' : 'bg-white';
+    const bgColor = darkMode ? 'bg-[#0e0e12]' : 'bg-[#f8f9fa]';
+    const textColor = darkMode ? 'text-white' : 'text-black';
+    const cardColor = darkMode ? 'bg-[#1c1c24]' : 'bg-white';
     const accentColor = darkMode ? 'text-cyan-400' : 'text-indigo-600';
     const buttonColor = darkMode ? 'bg-emerald-500 hover:bg-emerald-600' : 'bg-emerald-600 hover:bg-emerald-700';
 
