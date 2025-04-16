@@ -21,6 +21,7 @@ const translations = {
   },
 };
 
+// Tu array `projects` permanece igual...
 const projects = [
   {
     title: {
@@ -97,7 +98,11 @@ const projects = [
 export const Proyectos = () => {
   const darkMode = useUiNavbar((state) => state.darkMode);
   const language = useLanguageStore((state) => state.language);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: 'center',
+    containScroll: 'trimSnaps',
+  });
   const [, setSelectedIndex] = useState(0);
 
   const bgColor = darkMode ? 'bg-[#0e0e12]' : 'bg-[#f4f4f7]';
@@ -113,142 +118,87 @@ export const Proyectos = () => {
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  const toggleExpand = (index: number) => {
-    setExpandedIndex((prev) => (prev === index ? null : index));
-  };
-
+  
   return (
-    <section
-      id="projects"
-      className={`py-24 px-6 ${bgColor} ${textColor} transition-colors duration-300`}
-    >
+    <section id="projects" className={`py-24 px-6 ${bgColor} ${textColor} transition-colors duration-300`}>
       <h3 className="text-4xl font-bold text-center mb-12">
         {translations[language].heading}
       </h3>
 
       <div className="max-w-6xl mx-auto relative">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">
-            {projects.map((proj, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.02 }}
-                className={`${cardColor} rounded-2xl shadow-lg overflow-hidden min-w-full sm:min-w-[80%] md:min-w-[50%] lg:min-w-[33%] transition`}
-              >
-                <h4 className="text-xl font-semibold mb-2 p-5">{proj.title[language]}</h4>
-                <Image
-                  src={proj.img}
-                  alt={proj.title[language]}
-                  width={500}
-                  height={300}
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-5">
-                  {expandedIndex === index ? (
-                    <>
-                      <div className="space-y-3">
-                        <p className="text-sm leading-relaxed ">{proj.description[language]}</p>
-
-                        <div className="flex flex-wrap gap-2">
-                          {proj.tech.split('·').map((tech, idx) => (
-                            <span
-                              key={idx}
-                              className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground dark:bg-gray-800 dark:text-gray-300"
-                            >
-                              {tech.trim()}
-                            </span>
-                          ))}
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6">
+              {projects.map((proj, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.02 }}
+                  className={`${cardColor} rounded-2xl shadow-lg overflow-hidden min-w-full sm:min-w-[80%] md:min-w-[60%] lg:min-w-[50%] transition`}
+                >
+                  <h4 className="text-xl font-semibold mb-2 p-5">{proj.title[language]}</h4>
+                  <Image
+                    src={proj.img}
+                    alt={proj.title[language]}
+                    width={500}
+                    height={300}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-5">
+                        <div className="space-y-3">
+                          <p className="text-sm leading-relaxed">{proj.description[language]}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {proj.tech.split('·').map((tech, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground dark:bg-gray-800 dark:text-gray-300"
+                              >
+                                {tech.trim()}
+                              </span>
+                            ))}
+                          </div>
+                          <div className="mt-3 flex gap-3 flex-wrap">
+                            {proj.demo && (
+                              <Link
+                                href={proj.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition dark:bg-blue-500 dark:hover:bg-blue-600"
+                              >
+                                🌐 {translations[language].view}
+                              </Link>
+                            )}
+                            {proj.code && (
+                              <Link
+                                href={proj.code}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+                              >
+                                💻 {translations[language].code}
+                              </Link>
+                            )}
+                          </div>
                         </div>
-
-                        <div className="mt-3 flex gap-3 flex-wrap">
-                          {proj.demo && (
-                            <Link
-                              href={proj.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition dark:bg-blue-500 dark:hover:bg-blue-600"
-                            >
-                              🌐 {translations[language].view}
-                            </Link>
-                          )}
-                          {proj.code && (
-                            <Link
-                              href={proj.code}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
-                            >
-                              💻 {translations[language].code}
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => toggleExpand(index)}
-                        className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-red-600 dark:text-red-400 
-                                    hover:underline hover:text-red-800 dark:hover:text-red-300 transition-all duration-200"
-                      >
-                        {language === 'es' ? 'Ocultar detalles' : 'Hide details'}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="w-4 h-4"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-                        </svg>
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      onClick={() => toggleExpand(index)}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400 
-                                  hover:underline hover:text-blue-800 dark:hover:text-blue-300 transition-all duration-200"
-                    >
-                      {language === 'es' ? 'Descubre más' : 'Discover more'}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-4 h-4"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </button>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="flex justify-center gap-6 mt-8">
+          {/* Botones laterales */}
           <button
             onClick={scrollPrev}
-            className="hidden md:flex items-center justify-center w-12 h-12 rounded-full 
-               bg-blue-600 text-white hover:bg-blue-700 shadow-md 
-               dark:bg-blue-500 dark:hover:bg-blue-600 
-               transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="absolute top-1/2 -left-6 -translate-y-1/2 z-10 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition"
           >
             <HiOutlineChevronLeft size={24} />
           </button>
           <button
             onClick={scrollNext}
-            className="hidden md:flex items-center justify-center w-12 h-12 rounded-full 
-               bg-blue-600 text-white hover:bg-blue-700 shadow-md 
-               dark:bg-blue-500 dark:hover:bg-blue-600 
-               transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="absolute top-1/2 -right-6 -translate-y-1/2 z-10 bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition"
           >
             <HiOutlineChevronRight size={24} />
           </button>
         </div>
-
       </div>
     </section>
   );
