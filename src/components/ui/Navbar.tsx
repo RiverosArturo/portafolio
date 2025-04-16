@@ -28,6 +28,7 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold text-primary">Portafolio</h1>
 
+          {/* Navbar desktop */}
           <nav className="hidden md:flex gap-6 items-center text-sm font-medium text-muted-foreground">
             {navItems.map(({ id, label }) => (
               <a key={id} href={`#${id}`} className="hover:text-primary">
@@ -55,8 +56,18 @@ export const Navbar = () => {
             </button>
           </nav>
 
-          {/* Versión móvil */}
+          {/* Navbar móvil */}
           <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full hover:bg-muted transition"
+              aria-label="Toggle dark mode"
+            >
+              {darkMode
+                ? <Sun className="w-5 h-5 text-amber-400" />
+                : <Moon className="w-5 h-5 text-amber-400" />
+              }
+            </button>
             <button
               onClick={toggleLanguage}
               className="px-3 py-1 text-xs border rounded-full hover:bg-muted transition"
