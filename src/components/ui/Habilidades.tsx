@@ -42,7 +42,6 @@ const habilidades = [
 export const Habilidades = () => {
   const darkMode = useUiNavbar(state => state.darkMode);
   const language = useLanguageStore(state => state.language);
-  const toggleLanguage = useLanguageStore(state => state.toggleLanguage);
   const bgColor = darkMode ? 'bg-[#0f172a]' : 'bg-[#f9fafb]';
   const cardColor = darkMode ? 'bg-[#1e293b]' : 'bg-white';
   const textColor = darkMode ? 'text-white' : 'text-gray-800';
@@ -75,12 +74,6 @@ export const Habilidades = () => {
         <h3 className="text-4xl font-bold text-center flex-1">
           {language === 'es' ? 'Herramientas y Tecnologías' : 'Tools and Technologies'}
         </h3>
-        <button
-          onClick={toggleLanguage}
-          className="ml-6 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          {language === 'es' ? 'English' : 'Español'}
-        </button>
       </div>
 
       <div className="overflow-hidden max-w-5xl mx-auto" ref={emblaRef}>

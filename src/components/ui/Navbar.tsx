@@ -16,7 +16,6 @@ export const Navbar = () => {
   const textColor = darkMode ? 'text-white' : 'text-black';
 
   const navItems = [
-    
     { id: 'projects', label: language === 'es' ? 'Proyectos' : 'Projects' },
     { id: 'skills', label: language === 'es' ? 'Skills' : 'Skills' },
     { id: 'about', label: language === 'es' ? 'Sobre mí' : 'About me' },
@@ -56,7 +55,15 @@ export const Navbar = () => {
             </button>
           </nav>
 
-          <div className="md:hidden">
+          {/* Versión móvil */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 text-xs border rounded-full hover:bg-muted transition"
+              aria-label="Cambiar idioma"
+            >
+              {language.toUpperCase()}
+            </button>
             <button onClick={toggleDrawer} className="p-2">
               <Menu className="w-6 h-6" />
             </button>
