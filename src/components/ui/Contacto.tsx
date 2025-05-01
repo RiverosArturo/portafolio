@@ -10,13 +10,13 @@ const translations = {
         heading: 'Contáctame',
         email: 'riveros45arturo@gmail.com',
         button: 'Ver CV',
-        cvLink: 'https://drive.google.com/file/d/19Hd1NXUDoniCsgweo1qKHz77Xrf6RVdF/view?usp=sharing',
+        cvLink: 'https://drive.google.com/file/d/1XtCSleqJNFEq0WR54tW7drVQVr9Pqetm/view?usp=sharing',
     },
     en: {
         heading: 'Contact Me',
         email: 'riveros45arturo@gmail.com',
         button: 'See resume',
-        cvLink: 'https://drive.google.com/file/d/10saFlDqDUibPxS-7UoXKa0-e1CztJ9UI/view?usp=sharing',
+        cvLink: 'https://drive.google.com/file/d/1yiADX7Rc5CUeyYZgjwnKOw9O2r_bYPxf/view?usp=sharing',
     },
 };
 

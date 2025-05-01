@@ -80,7 +80,7 @@ export const Cursos = () => {
   const cardColor = darkMode ? 'bg-[#1e293b]' : 'bg-white';
   
   return (
-    <section className={`py-24 px-6 ${bgColor} ${textColor} transition-colors duration-300`}>
+    <section id="courses" className={`py-24 px-6 ${bgColor} ${textColor} transition-colors duration-300`}>
       <h3 className="text-4xl font-bold text-center mb-12">{translations[language].heading}</h3>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">

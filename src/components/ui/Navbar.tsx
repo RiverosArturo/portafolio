@@ -19,6 +19,7 @@ export const Navbar = () => {
     { id: 'projects', label: language === 'es' ? 'Proyectos' : 'Projects' },
     { id: 'skills', label: language === 'es' ? 'Skills' : 'Skills' },
     { id: 'about', label: language === 'es' ? 'Sobre mí' : 'About me' },
+    { id: 'courses', label: language === 'es' ? 'Cursos' : 'Courses' },
     { id: 'contact', label: language === 'es' ? 'Contacto' : 'Contact' },
   ];
 

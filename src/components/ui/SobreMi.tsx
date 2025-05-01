@@ -11,7 +11,7 @@ const translations = {
         paragraph2:
             'Además, cuento con una certificación en E-commerce y Marketing Digital por Google, lo que complementa mi perfil con una visión más estratégica del desarrollo web.',
         button: 'Ver CV',
-        cvLink: 'https://drive.google.com/file/d/19Hd1NXUDoniCsgweo1qKHz77Xrf6RVdF/view?usp=sharing',
+        cvLink: 'https://drive.google.com/file/d/1XtCSleqJNFEq0WR54tW7drVQVr9Pqetm/view?usp=sharing',
     },
     en: {
         heading: 'About Me',
@@ -20,7 +20,7 @@ const translations = {
         paragraph2:
             'I also hold a certification in E-commerce and Digital Marketing from Google, which enhances my profile with a more strategic view of web development.',
         button: 'See resume',
-        cvLink: 'https://drive.google.com/file/d/10saFlDqDUibPxS-7UoXKa0-e1CztJ9UI/view?usp=sharing',
+        cvLink: 'https://drive.google.com/file/d/1yiADX7Rc5CUeyYZgjwnKOw9O2r_bYPxf/view?usp=sharing',
     },
 };
 

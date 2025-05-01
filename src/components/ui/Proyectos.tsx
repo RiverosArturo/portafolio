@@ -25,6 +25,20 @@ const translations = {
 const projects = [
   {
     title: {
+      es: "Sitio web corporativo para mi empresa de desarrollo web",
+      en: "Corporate website for my web development company",
+    },
+    description: {
+      es: "Desarrollé una página web corporativa para promocionar mis servicios como empresa de desarrollo web. Está diseñada para atraer clientes potenciales, optimizada para SEO y enfocada en la conversión.",
+      en: "I developed a corporate website to promote my services as a web development company. It's designed to attract potential clients, SEO-optimized, and conversion-focused.",
+    },
+    tech: "Next.js · TypeScript · Tailwind CSS · Zustand · nodemailer",
+    img: "https://res.cloudinary.com/da9ybpsoe/image/upload/v1746083680/portafolio/rhSolutions_zmhbo9.png",
+    demo: "https://portafolio-pi-teal.vercel.app/",
+    code: "",
+  },
+  {
+    title: {
       es: "Hotel Danini",
       en: "Hotel Danini",
     },
